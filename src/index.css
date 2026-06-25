@@ -1,0 +1,259 @@
+/* --- BASE & FONDO PREMIUM --- */
+html,
+body {
+  background-color: #0a0a0a; /* Negro absoluto de alta gama */
+  color: #ffffff;
+  font-family: "Montserrat Alternates", sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Contenedor principal para centrar todo el contenido en pantalla */
+.content-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* --- TEXTOS --- */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+/* Subtítulo arreglado (ahora sí es legible) */
+.content-center > p {
+  color: #aaaaaa; 
+  font-size: 1rem;
+  text-align: center;
+  margin: 0 0 35px 0;
+}
+
+/* --- BUSCADOR CENTRADO Y DINÁMICO (BIEN CHÉVERE) --- */
+.search-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; /* Centrado absoluto asegurado */
+  gap: 12px;
+  width: 100%;
+  max-width: 480px; /* Ancho ideal para verse pro */
+  margin: 0 auto 40px auto;
+}
+
+.search-container input {
+  flex: 1;
+  padding: 14px 20px;
+  background-color: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  font-size: 16px;
+  color: #ffffff;
+  font-family: inherit;
+  width: 100%;
+  /* Animación suave para cuando el usuario interactúe */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+/* Efecto dinámico al hacer clic para buscar */
+.search-container input:focus {
+  outline: none;
+  background-color: #161616;
+  border-color: #ffffff; /* Cambia a blanco puro */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1); /* Brillo sutil blanco */
+  transform: translateY(-1px); /* Pequeño movimiento hacia arriba */
+}
+
+.search-container button {
+  padding: 14px 24px;
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  background-color: #ffffff;
+  color: #000000;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.25s ease;
+}
+
+.search-container button:hover {
+  background-color: transparent;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* --- BÚSQUEDAS PREVIAS REFINADAS --- */
+.previous-searches {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.previous-searches h2, 
+.previous-searches h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 5px 0;
+  text-align: center;
+}
+
+.previous-searches-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  max-width: 500px;
+}
+
+.previous-searches-list li {
+  padding: 8px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.previous-searches-list li:hover {
+  color: #000000;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* --- CUADRÍCULA DE GIFS SIMÉTRICA Y ORDENADA --- */
+.gifs-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+  gap: 16px;
+  width: 100%;
+  margin-top: 20px;
+  margin: 20px auto 80px auto;
+}
+
+.gif-card {
+  position: relative;
+  height: 180px; /* Altura estándar móvil */
+  border-radius: 12px; /* Esquinas un poco más suaves */
+  overflow: hidden;
+  background-color: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease;
+}
+
+.gif-card:hover {
+  transform: scale(1.03); /* Crece sutilmente de forma fluida */
+  border-color: rgba(255, 255, 255, 0.5); /* Aparece línea blanca fina */
+}
+
+.gif-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- CAPA DE INFORMACIÓN EN HOVER --- */
+.gif-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* Fondo oscuro degradado para leer bien el texto blanco */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+  padding: 16px 12px 12px 12px;
+  opacity: 0; /* Oculto por defecto */
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+}
+
+/* Muestra la info al pasar el mouse por encima de la tarjeta */
+.gif-card:hover .gif-info {
+  opacity: 1;
+}
+
+.gif-info h3 {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.gif-info p {
+  font-size: 11px;
+  margin: 4px 0 0 0;
+  color: #aaaaaa;
+  text-align: left;
+}
+
+/* --- MEDIA QUERIES (Alineación matemática perfecta) --- */
+@media (min-width: 768px) {
+  .gifs-container {
+    grid-template-columns: repeat(3, 1fr); /* 15 / 3 = 5 filas simétricas */
+    gap: 20px;
+  }
+  .gif-card {
+    height: 210px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gifs-container {
+    grid-template-columns: repeat(5, 1fr); /* 15 / 5 = 3 filas simétricas */
+    gap: 24px;
+  }
+  .gif-card {
+    height: 230px;
+  }
+}
+.app-footer {
+  width: 100%;
+  padding: 30px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Línea divisoria muy fina */
+  background-color: #0a0a0a;
+  box-sizing: border-box;
+}
+
+.app-footer p {
+  font-size: 13px;
+  font-weight: 400;
+  color: #555555; /* Gris oscuro para que sea sutil */
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.app-footer span {
+  color: #ffffff; /* Tu nombre resaltará en blanco nítido */
+  font-weight: 600;
+}
